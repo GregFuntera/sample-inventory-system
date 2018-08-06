@@ -1,14 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+
+// Material Module
+import { AppMaterialModule } from './app-material/app-material.module';
+import { MoviePageComponent } from './pages/movie/movie-page/movie-page.component';
+// Routing Module
+import { AppRoutingModule } from './app-routing/app-routing.module';
+// Pages
+import { MovieViewPageComponent } from './pages/movie/movie-view-page/movie-view-page.component';
+import { MovieListComponent } from './pages/movie/movie-page/movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MoviePageComponent,
+    MovieViewPageComponent,
+    MovieListComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppMaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
