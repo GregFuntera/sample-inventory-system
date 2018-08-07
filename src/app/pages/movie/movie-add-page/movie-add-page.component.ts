@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movies } from './../../../models/movies.model';
+import { MovieService } from './../../../services/movie/movie.service';
 
 @Component({
   selector: 'app-movie-add-page',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieAddPageComponent implements OnInit {
 
-  constructor() { }
+  movie: any;
+
+  constructor(private movieSvc: MovieService) {
+    // Nothing here...
+  }
 
   ngOnInit() {
+    let title = '';
+    let featured_photo = '';
+    let synopsis = '';
+    this.movie = new Movies(title, featured_photo, synopsis);
+  }
+
+  addMovie() {
+    this.movieSvc.addMovie(this.movie)
+        .then((message) => {
+            console.log(message);
+        });
   }
 
 }

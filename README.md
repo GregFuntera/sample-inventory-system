@@ -35,7 +35,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [1.0.0] - 2018-06-07
+## [1.0.0] - 2018-06-07 
 ### Added 
 - Added Movie View Page
-- Added Movie Add Page
+- Added Movie Add Page 
+- Added Mock Data System Flow

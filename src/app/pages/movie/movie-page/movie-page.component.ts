@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-movie-page',
   templateUrl: './movie-page.component.html',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviePageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    // Nothing here..
+  }
 
   ngOnInit() {
   }

@@ -1,23 +1,22 @@
-<mat-list>
+<mat-list *ngFor="let movie of movies">
     <mat-list-item>
       <div class="movie-thumbnail">
-        <a target="_blank" href="https://www.movieposter.com/posters/archive/main/19/MPW-9746.jpg">
-          <img src="https://www.movieposter.com/posters/archive/main/19/MPW-9746.jpg" alt="Movie Poster">
+        <a target="_blank" href="{{ movie.featured_photo }}">
+          <img src="{{ movie.featured_photo }}" alt="Movie Poster">
         </a>
       </div>
       <div class="movie-info">
-        <h1>Movie Title</h1>
-        <h3>Date Added: June 23, 1995</h3>
+        <h1>{{ movie.title }}</h1>
+        <h3>Date Added: {{ movie.created_at | date }}</h3>
         <h3>Synopsis:</h3>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea dolorem modi numquam a in iste sequi, veritatis omnis praesentium obcaecati tempora nesciunt consequatur voluptate laudantium iure, ullam cum ad adipisci.
-        </p>
+        <p>{{ movie.synopsis }}</p>
         <div class="action-btn">
          <ul>
            <li>
               <a mat-icon-button
                  color="accent"
-                 matTooltip="Remove">
+                 matTooltip="Remove"
+                 (click)="deleteMovie(movie.created_at)">
                 <mat-icon>delete</mat-icon>
               </a>
            </li>
@@ -25,7 +24,8 @@
               <a mat-icon-button
                  color="primary"
                  matTooltip="View"
-                 routerLink="/movies/123">
+                 [routerLink]="['/movies', movie.title]"
+                 [queryParams]="{ created_at: movie.created_at }">
                  <mat-icon>visibility</mat-icon>
             </a>
            </li>

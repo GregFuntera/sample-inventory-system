@@ -6,10 +6,14 @@
 
 .poster-container {
   width: 100%;
-  text-align: right;
   img {
     width: 150px;
+  }
+}
 
+.featured-photo-container {
+  mat-form-field {
+    width: 85%;
   }
 }
 
