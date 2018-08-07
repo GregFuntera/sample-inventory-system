@@ -36,6 +36,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ## [1.0.0] - 2018-06-07 
+### Changed 
+- Changed theme to purple-green
 ### Added 
 - Added Movie View Page
 - Added Movie Add Page 

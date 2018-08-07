@@ -14,7 +14,7 @@
          <ul>
            <li>
               <a mat-icon-button
-                 color="accent"
+                 color="warn"
                  matTooltip="Remove"
                  (click)="deleteMovie(movie.created_at)">
                 <mat-icon>delete</mat-icon>
@@ -22,7 +22,6 @@
            </li>
            <li>
               <a mat-icon-button
-                 color="primary"
                  matTooltip="View"
                  [routerLink]="['/movies', movie.title]"
                  [queryParams]="{ created_at: movie.created_at }">
