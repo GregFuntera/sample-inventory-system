@@ -1,0 +1,60 @@
+mat-list-item {
+  height: 270px !important;
+  min-height: 250px !important;
+  .movie-thumbnail {
+    img {
+      border-radius: 4px;
+      padding: 5px;
+      width: 150px;
+    }
+  }
+  .movie-info {
+    width: 450px;
+    h1 {
+      margin: 0px;
+    }
+    h3 {
+      margin: 0px;
+      margin-top: 5px;
+    }
+    .action-btn {
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      li {
+        float: left;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: 320px) {
+ .movie-thumbnail {
+   img {
+     width: 130px !important;
+   }
+ }
+ .movie-info {
+   width: 150px !important;
+ }
+
+}
+
+@media (max-width: 400px) {
+  .movie-info {
+    h1 {
+      font-size: 18px;
+      margin-top: 10px !important;
+    }
+    h3 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}

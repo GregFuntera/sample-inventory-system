@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 // Pages
 import { MovieViewPageComponent } from './pages/movie/movie-view-page/movie-view-page.component';
 import { MovieListComponent } from './pages/movie/movie-page/movie-list/movie-list.component';
+import { MovieAddPageComponent } from './pages/movie/movie-add-page/movie-add-page.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MovieListComponent } from './pages/movie/movie-page/movie-list/movie-li
     MoviePageComponent,
     MovieViewPageComponent,
     MovieListComponent,
+    MovieAddPageComponent,
   ],
   imports: [
     BrowserModule,

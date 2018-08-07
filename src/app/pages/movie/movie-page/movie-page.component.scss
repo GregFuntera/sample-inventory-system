@@ -1,5 +1,13 @@
 .movies-container {
   min-width: 350px;
-  max-width: 800px;
+  max-width: 650px;
   margin: auto;
+  position: relative;
+  min-height: 500px;
+  .add-btn {
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    bottom: 0;
+  }
 }
