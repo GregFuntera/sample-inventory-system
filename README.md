@@ -41,4 +41,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added 
 - Added Movie View Page
 - Added Movie Add Page 
-- Added Mock Data System Flow
+- Added Mock Data System Flow 
+- Added Dynamic Title in Routing 
+- Added Logo Branding

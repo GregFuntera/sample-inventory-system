@@ -22,7 +22,7 @@ export class MovieListComponent implements OnInit {
   deleteMovie(createdAt) {
     this.movieSvc.deleteMovie(createdAt)
         .then((message) => {
-          console.log(message);
+          // console.log(message);
         });
   }
 

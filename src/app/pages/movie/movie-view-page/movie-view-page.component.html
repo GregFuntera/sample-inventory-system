@@ -8,10 +8,11 @@
       <mat-form-field>
         <input #featuredPoster
               matInput
-              placeholder="Featured Poster"
-              [value]="movie.featured_photo">
+              placeholder="URL Featured Poster"
+              [value]="movie.featured_photo"
+              required>
       </mat-form-field>
-      <button mat-icon-button
+      <button mat-mini-fab
               matTooltip="Update featured poster"
               (click)="updateMoviePoster(featuredPoster.value)">
         <mat-icon color="primary">add_photo_alternate</mat-icon>

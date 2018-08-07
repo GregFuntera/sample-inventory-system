@@ -1,24 +1,31 @@
 <div class="movie-container">
   <div class="poster-container">
       <img src="{{ movie.featured_photo }}"
-            onerror="this.onerror=null;this.src='./assets/images/image-fallback.png';"/>
+           onerror="this.onerror=null;this.src='/assets/images/image-fallback.png';"/>
   </div>
   <div class="movie-form">
+    <div class="featured-photo-container mt-10">
       <mat-form-field>
-        <input matInput
-              placeholder="Featured Poster"
-              [(ngModel)]="movie.featured_photo"
+        <input #featuredPoster
+              matInput
+              placeholder="URL Featured Poster"
               required>
       </mat-form-field>
-
-      <mat-form-field>
-        <input matInput placeholder="Title" [(ngModel)]="movie.title" required>
-      </mat-form-field>
-
-      <mat-form-field>
-        <textarea matInput placeholder="Synopsis" rows="10" [(ngModel)]="movie.synopsis" required></textarea>
-      </mat-form-field>
+      <button mat-mini-fab
+              matTooltip="Update featured poster"
+              (click)="updateMoviePoster(featuredPoster.value)">
+        <mat-icon color="primary">add_photo_alternate</mat-icon>
+      </button>
     </div>
+
+    <mat-form-field>
+      <input matInput placeholder="Title" [(ngModel)]="movie.title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Synopsis" rows="10" [(ngModel)]="movie.synopsis" required></textarea>
+    </mat-form-field>
+  </div>
     <div class="action-btns">
       <button class="m-10" mat-button routerLink="/movies">BACK</button>
       <button class="m-10"

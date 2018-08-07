@@ -2,7 +2,9 @@
     <mat-list-item>
       <div class="movie-thumbnail">
         <a target="_blank" href="{{ movie.featured_photo }}">
-          <img src="{{ movie.featured_photo }}" alt="Movie Poster">
+          <img src="{{ movie.featured_photo }}"
+               alt="{{ movie.title }}"
+               onerror="this.onerror=null;this.src='/assets/images/image-fallback.png';">
         </a>
       </div>
       <div class="movie-info">
@@ -34,4 +36,3 @@
     </mat-list-item>
     <mat-divider></mat-divider>
   </mat-list>
-

@@ -6,9 +6,15 @@
 
 .poster-container {
   width: 100%;
-  // text-align: right;
   img {
     width: 150px;
+    background: url('/assets/images/image-fallback.png');
+  }
+}
+
+.featured-photo-container {
+  mat-form-field {
+    width: 85%;
   }
 }
 

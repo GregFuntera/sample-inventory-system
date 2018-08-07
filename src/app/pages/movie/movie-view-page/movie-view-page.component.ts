@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from './../../../services/movie/movie.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-movie-view-page',
@@ -14,7 +15,8 @@ export class MovieViewPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private movieSvc: MovieService
+    private movieSvc: MovieService,
+    private snackBar: MatSnackBar
   ) {
     this.createdAt = this.route.snapshot.queryParamMap.get('created_at');
   }
@@ -29,18 +31,24 @@ export class MovieViewPageComponent implements OnInit {
     // console.log(this.movie);
   }
 
-  updateMoviePoster(poster) {
+  updateMoviePoster(poster: string) {
     this.movieSvc.updateMoviePoster(this.createdAt, poster)
-        .then((message) => {
-            console.log(message);
+        .then((data) => {
+            this.openSnackBar(data.message, 'OK');
         });
   }
 
   updateMovie() {
     this.movieSvc.updateMovie(this.createdAt, this.movie)
-        .then((message) => {
-          console.log(message);
+        .then((data) => {
+          this.openSnackBar(data.message, 'OK');
         });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
 }

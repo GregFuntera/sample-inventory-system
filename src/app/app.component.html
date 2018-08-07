@@ -6,7 +6,12 @@
       <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <h1 class="nav-app-name">Responsive App</h1>
+      <h5 class="nav-app-name">
+        NG-Movie Inventory
+      </h5>
+      <span>
+        <img class="mt-10 ml-5" src="./assets/images/angular-icon.png" width="25px" height="25px"/>
+      </span>
     </mat-toolbar>
 
   <mat-sidenav-container  class="nav-sidenav-container"
@@ -17,13 +22,16 @@
                   fixedTopGap="56">
       <mat-nav-list>
         <a mat-list-item [routerLink]="['/movies']" routerLinkActive="active">
-          Movies
+          <mat-icon>movie</mat-icon>
+          <h3>Home</h3>
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <mat-toolbar class="mat-elevation-z1" color="primary">Title</mat-toolbar>
+      <mat-toolbar class="toolbar-title mat-elevation-z1" color="primary">
+        <h5>{{ title }}</h5>
+      </mat-toolbar>
         <div class="content-container m-10">
           <router-outlet></router-outlet>
         </div>

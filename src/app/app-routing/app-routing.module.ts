@@ -6,9 +6,9 @@ import { MovieAddPageComponent } from '../pages/movie/movie-add-page/movie-add-p
 
 const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
-  { path: 'movies', component: MoviePageComponent },
-  { path: 'movies/:movieTitle', component: MovieViewPageComponent},
-  { path: 'add', component: MovieAddPageComponent }
+  { path: 'movies', component: MoviePageComponent, data: {title: 'Movies'} },
+  { path: 'movies/:movieTitle', component: MovieViewPageComponent, data: {title: 'Movie Details'} },
+  { path: 'add', component: MovieAddPageComponent, data: {title: 'Add Movie'} }
 ];
 
 @NgModule({
