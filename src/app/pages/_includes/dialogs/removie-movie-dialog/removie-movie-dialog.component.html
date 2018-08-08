@@ -5,8 +5,8 @@
 <mat-dialog-actions align="end">
     <button mat-button
             mat-dialog-close
+            cdkFocusInitial
             [mat-dialog-close]="true">No</button>
     <button mat-button
-            cdkFocusInitial
             (click)="removeMovie()">Yes</button>
 </mat-dialog-actions>
