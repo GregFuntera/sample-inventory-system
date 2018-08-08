@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { MovieService } from './../../../../services/movie/movie.service';
+// Dialog
+import { RemovieMovieDialogComponent } from './../../../_includes/dialogs/removie-movie-dialog/removie-movie-dialog.component';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,8 +13,11 @@ export class MovieListComponent implements OnInit {
 
   movies: any[];
 
-  constructor(private movieSvc: MovieService) {
+  constructor(
+    private movieSvc: MovieService,
+    private matDialog: MatDialog) {
     // Nothing here...
+
   }
 
   ngOnInit() {
@@ -20,10 +26,15 @@ export class MovieListComponent implements OnInit {
   }
 
   deleteMovie(createdAt) {
-    this.movieSvc.deleteMovie(createdAt)
-        .then((message) => {
-          // console.log(message);
-        });
+    const message = `Are you sure you want to remove this movie?`;
+    this.openDialog(RemovieMovieDialogComponent, createdAt, message);
+  }
+
+  openDialog(component, createdAt, message) {
+    const dialogRef = this.matDialog.open(component, {
+        width: '300px',
+        data: {createdAt: createdAt, message: message}
+    });
   }
 
 }
