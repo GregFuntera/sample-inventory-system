@@ -38,10 +38,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.1] - 2018-06-08 
 ### Fixed 
 - Fixed highlighted button for remove movie dialog 
-
 ### Added 
 - Added deploy scripts
 - Added Remove Alert Dialog
+- Added Form Validators when adding new movie
 
 ## [1.0.0] - 2018-06-07 
 ### Changed 

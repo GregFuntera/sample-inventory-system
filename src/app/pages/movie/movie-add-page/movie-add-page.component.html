@@ -1,36 +1,60 @@
 <div class="movie-container">
-  <div class="poster-container">
-      <img src="{{ movie.featured_photo }}"
-           onerror="this.onerror=null;this.src='/assets/images/image-fallback.png';"/>
-  </div>
-  <div class="movie-form">
-    <div class="featured-photo-container mt-10">
-      <mat-form-field>
-        <input #featuredPoster
-              matInput
-              placeholder="URL Featured Poster"
-              required>
-      </mat-form-field>
-      <button mat-mini-fab
-              matTooltip="Update featured poster"
-              (click)="updateMoviePoster(featuredPoster.value)">
-        <mat-icon color="primary">add_photo_alternate</mat-icon>
-      </button>
+  <form [formGroup]="movieForm" (ngSubmit)="addMovie(movieForm.value)">
+    <div class="poster-container">
+        <img src="{{ movie.featured_photo }}"
+            onerror="this.onerror=null;this.src='/assets/images/image-fallback.png';"/>
     </div>
-
-    <mat-form-field>
-      <input matInput placeholder="Title" [(ngModel)]="movie.title" required>
-    </mat-form-field>
-
-    <mat-form-field>
-      <textarea matInput placeholder="Synopsis" rows="10" [(ngModel)]="movie.synopsis" required></textarea>
-    </mat-form-field>
-  </div>
+    <div class="movie-form">
+      <!-- Featured Photo -->
+      <div class="featured-photo-container mt-10">
+        <mat-form-field>
+          <input #featuredPoster
+                matInput
+                placeholder="URL Featured Poster"
+                formControlName="featured_photo"
+                required>
+          <mat-error *ngIf="movieForm.get('featured_photo').invalid">
+            <mat-icon>error</mat-icon>
+            {{ getErrorMessage('featured_photo') }}
+          </mat-error>
+        </mat-form-field>
+        <button mat-mini-fab
+                matTooltip="Update featured poster"
+                (click)="updateMoviePoster(featuredPoster.value)">
+          <mat-icon color="primary">add_photo_alternate</mat-icon>
+        </button>
+      </div>
+      <!-- Title -->
+      <mat-form-field class="mt-10">
+        <input matInput
+              placeholder="Title"
+              formControlName="title"
+              required>
+        <mat-error *ngIf="movieForm.get('title').invalid">
+          <mat-icon>error</mat-icon>
+          {{ getErrorMessage('title') }}
+        </mat-error>
+      </mat-form-field>
+      <!-- Synopsis -->
+      <mat-form-field class="mt-10">
+        <textarea matInput
+                  placeholder="Synopsis"
+                  rows="10"
+                  formControlName="synopsis"
+                  required></textarea>
+        <mat-error *ngIf="movieForm.get('synopsis').invalid">
+          <mat-icon>error</mat-icon>
+          {{ getErrorMessage('synopsis') }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- Action Buttons -->
     <div class="action-btns">
       <button class="m-10" mat-button routerLink="/movies">BACK</button>
       <button class="m-10"
               mat-raised-button
               color="primary"
-              (click)="addMovie()">ADD</button>
+              [disabled]="!movieForm.valid">ADD</button>
     </div>
-  </div>
+  </form>
+</div>
