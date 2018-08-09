@@ -1,4 +1,4 @@
-<div class="movie-container">
+<div class="movie-container" *ngIf="!isLoading">
   <form [formGroup]="movieForm" (ngSubmit)="updateMovie(movieForm.value)">
     <div class="poster-container">
         <img src="{{ movie.featured_photo }}"

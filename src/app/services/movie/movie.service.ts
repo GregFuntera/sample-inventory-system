@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movies } from './../../models/movies.model';
 import { Mock } from './../../mocks/movies.mock';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,23 @@ import { Mock } from './../../mocks/movies.mock';
 export class MovieService {
 
   constructor(
-    public moviesMock: Mock
+    public moviesMock: Mock,
+    private router: Router,
   ) { }
 
   getMovies(): Movies[] {
     return this.moviesMock.mockData;
   }
 
-  getMovie(createdAt): any {
-    return this.moviesMock.mockData
-               .find(movie => movie.created_at == createdAt);
+  getMovie(createdAt): Promise<any> {
+    return new Promise((resolve, reject) => {
+        let movie = this.moviesMock.mockData.find(movie => movie.created_at == createdAt);
+        if (movie) {
+          resolve(movie);
+        } else {
+          this.router.navigate(['**']);
+        }
+    });
   }
 
   addMovie(movie): Promise<any> {

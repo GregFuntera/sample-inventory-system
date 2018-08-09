@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material';
 import { FormBuilder, Validators } from '@angular/forms';
 //
 import { MovieService } from './../../../services/movie/movie.service';
+import { Movies } from './../../../models/movies.model';
 
 @Component({
   selector: 'app-movie-view-page',
@@ -13,8 +14,9 @@ import { MovieService } from './../../../services/movie/movie.service';
 export class MovieViewPageComponent implements OnInit {
 
   createdAt: any;
-  movie: any = {};
+  movie: Movies;
   movieForm: any;
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,22 +27,27 @@ export class MovieViewPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadMovie();
-    this.setupValidators();
+    this.movieSvc.getMovie(this.createdAt)
+      .then((movie) => {
+        this.movie = movie;
+        this.setupValidators(movie);
+    });
   }
 
-  setupValidators() {
-    if (this.movie) {
+  setupValidators(movie) {
+    if (movie) {
       this.movieForm = this.fb.group({
-        featured_photo: [this.movie.featured_photo, Validators.required],
-        title: [this.movie.title, Validators.required],
-        synopsis: [this.movie.synopsis, Validators.compose(
+        featured_photo: [movie.featured_photo, Validators.required],
+        title: [movie.title, Validators.required],
+        synopsis: [movie.synopsis, Validators.compose(
           [
             Validators.required,
             Validators.minLength(5)
           ])
         ]
       });
+      // Finished validator setup...
+      this.isLoading = false;
     }
   }
 
@@ -57,11 +64,18 @@ export class MovieViewPageComponent implements OnInit {
 
   updateMovie(value) {
     if (this.movieForm.valid) {
-      this.movieSvc.updateMovie(this.createdAt, value)
+      this.movie = this.transformMovie(value);
+      this.movieSvc.updateMovie(this.createdAt, this.movie)
         .then((data) => {
           this.openSnackBar(data.message, 'OK');
       });
     }
+  }
+
+  transformMovie(value): Movies {
+    let movie = new Movies(value.title, value.featured_photo, value.synopsis);
+    movie.created_at = this.createdAt;
+    return movie;
   }
 
   getErrorMessage(formName) {
