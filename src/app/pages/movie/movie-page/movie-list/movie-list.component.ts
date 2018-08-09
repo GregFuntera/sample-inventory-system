@@ -22,12 +22,19 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit() {
     this.movies = this.movieSvc.getMovies();
-    // console.log('movies: ', this.movies);
   }
 
   deleteMovie(createdAt) {
     const message = `Are you sure you want to remove this movie?`;
     this.openDialog(RemovieMovieDialogComponent, createdAt, message);
+  }
+
+  updateMovieLike(movie) {
+    movie.like = !movie.like;
+    this.movieSvc.updateMovieLike(movie.created_at, movie.like)
+      .then((data) => {
+        // console.log(data.message);
+      });
   }
 
   openDialog(component, createdAt, message) {

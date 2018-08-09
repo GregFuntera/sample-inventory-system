@@ -24,6 +24,14 @@
            </li>
            <li>
               <a mat-icon-button
+                 matTooltip="Favorite"
+                 color="accent"
+                 (click)="updateMovieLike(movie)">
+                 <mat-icon>{{ movie.like ? 'favorite' : 'favorite_border' }}</mat-icon>
+            </a>
+           </li>
+           <li>
+              <a mat-icon-button
                  matTooltip="View"
                  [routerLink]="['/movies', movie.title]"
                  [queryParams]="{ created_at: movie.created_at }">

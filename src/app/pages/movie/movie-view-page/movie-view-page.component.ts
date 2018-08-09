@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { FormBuilder, Validators } from '@angular/forms';
-//
+// Services
 import { MovieService } from './../../../services/movie/movie.service';
+//
 import { Movies } from './../../../models/movies.model';
 
 @Component({
@@ -49,10 +50,6 @@ export class MovieViewPageComponent implements OnInit {
       // Finished validator setup...
       this.isLoading = false;
     }
-  }
-
-  loadMovie() {
-    this.movie = this.movieSvc.getMovie(this.createdAt);
   }
 
   updateMoviePoster(poster: string) {

@@ -3,10 +3,12 @@ export class Movies {
     public title: string,
     public featured_photo: string,
     public synopsis: string,
-    public created_at?: number) {
+    public created_at?: number,
+    public like?: number) {
       this.title = title;
       this.featured_photo = featured_photo;
       this.synopsis = synopsis;
       this.created_at = new Date().getTime();
+      this.like = 0;
   }
 }

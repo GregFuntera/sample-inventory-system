@@ -10,8 +10,9 @@ export class MovieService {
 
   constructor(
     public moviesMock: Mock,
-    private router: Router,
-  ) { }
+    private router: Router) {
+    // Nothing here..
+  }
 
   getMovies(): Movies[] {
     return this.moviesMock.mockData;
@@ -19,9 +20,10 @@ export class MovieService {
 
   getMovie(createdAt): Promise<any> {
     return new Promise((resolve, reject) => {
-        let movie = this.moviesMock.mockData.find(movie => movie.created_at == createdAt);
-        if (movie) {
-          resolve(movie);
+        let tempMovie = this.moviesMock.mockData
+          .find(movie => movie.created_at == createdAt);
+        if (tempMovie) {
+          resolve(tempMovie);
         } else {
           this.router.navigate(['**']);
         }
@@ -32,6 +34,14 @@ export class MovieService {
     return new Promise((resolve, reject) => {
       this.moviesMock.mockData.push(movie);
       resolve({message: 'Added new movie.'});
+    });
+  }
+
+  updateMovieLike(createdAt, like): Promise<any> {
+    let index = this.getArrayIndex(createdAt);
+    return new Promise((resolve, reject) => {
+        this.moviesMock.mockData[index].like = like;
+        resolve({message: 'Like process success.'});
     });
   }
 
