@@ -1,5 +1,7 @@
 # Sample Inventory System
 
+Live Demo: https://ng-inventory-98c87.firebaseapp.com/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 ## Development server
