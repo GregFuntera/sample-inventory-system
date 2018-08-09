@@ -3,7 +3,7 @@
   max-width: 650px;
   margin: auto;
   position: relative;
-  height: 600px;
+  height: 80vh;
   overflow: scroll;
 }
 
@@ -13,9 +13,25 @@
   max-width: 1030px;
   .add-btn {
     position: absolute;
-    right: 1px;
+    right: 1vh;
     bottom: 0;
     margin: 10px;
-    top: -160px;
+    top: -100px;
+  }
+}
+
+// Media Queries
+@media (min-width: 1920px) {
+  .add-btn-container {
+    position: relative;
+    min-width: 310px;
+    max-width: 1030px;
+    .add-btn {
+      position: absolute;
+      right: -30vh;
+      bottom: 0;
+      margin: 10px;
+      top: -100px;
+    }
   }
 }
