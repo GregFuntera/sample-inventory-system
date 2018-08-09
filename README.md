@@ -40,7 +40,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed Synopsis line length
 ### Added 
 - Added Validators of input in Movie View Page 
-- Added new fallback-image for missing images
+- Added new fallback-image for missing images 
+- Added Page Not Found
+- Addded Favorite Movie functionality
 
 ## [1.0.1] - 2018-06-08 
 ### Fixed 

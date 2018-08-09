@@ -71,7 +71,9 @@ export class MovieViewPageComponent implements OnInit {
 
   transformMovie(value): Movies {
     let movie = new Movies(value.title, value.featured_photo, value.synopsis);
+    // Retains Data Variables
     movie.created_at = this.createdAt;
+    movie.like = this.movie.like;
     return movie;
   }
 

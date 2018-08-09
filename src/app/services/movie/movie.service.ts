@@ -73,4 +73,20 @@ export class MovieService {
     return this.moviesMock.mockData
                .findIndex(movie => movie.created_at == createdAt);
   }
+
+  // INFORMATION SECTION
+  getTotalMovieCount(): number {
+    return this.moviesMock.mockData.length;
+  }
+
+  getTotalLikedMovies(): number {
+    let numLikes = 0;
+    this.moviesMock.mockData.forEach(
+      movie => {
+        if (movie.like) {
+          numLikes++;
+        }
+    });
+    return numLikes;
+  }
 }

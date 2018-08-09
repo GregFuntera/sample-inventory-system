@@ -12,6 +12,7 @@ import { MoviePageComponent } from './pages/movie/movie-page/movie-page.componen
 import { MovieViewPageComponent } from './pages/movie/movie-view-page/movie-view-page.component';
 import { MovieListComponent } from './pages/movie/movie-page/movie-list/movie-list.component';
 import { MovieAddPageComponent } from './pages/movie/movie-add-page/movie-add-page.component';
+import { InfoPageComponent } from './pages/info/info-page/info-page.component';
 import { PageNotFoundComponent } from './pages/_includes/page-not-found/page-not-found.component';
 // Dialogs
 import { RemovieMovieDialogComponent } from './pages/_includes/dialogs/removie-movie-dialog/removie-movie-dialog.component';
@@ -29,6 +30,7 @@ import { Mock } from './mocks/movies.mock';
     MovieAddPageComponent,
     RemovieMovieDialogComponent,
     PageNotFoundComponent,
+    InfoPageComponent,
   ],
   imports: [
     FormsModule,
