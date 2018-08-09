@@ -2,7 +2,7 @@
   <form [formGroup]="movieForm" (ngSubmit)="updateMovie(movieForm.value)">
     <div class="poster-container">
         <img src="{{ movie.featured_photo }}"
-             onerror="this.onerror=null;this.src='./assets/images/image-fallback.png';"/>
+             onerror="this.onerror=null;this.src='/assets/images/no-image-available.png';"/>
     </div>
     <div class="movie-form">
       <div class="featured-photo-container mt-10">
@@ -38,7 +38,7 @@
       <!-- Synopsis -->
       <mat-form-field class="mt-10">
         <textarea matInput
-                  placeholder="Synopsis"
+                  placeholder="Synopsis (Must be at least 5 characters)"
                   rows="10"
                   formControlName="synopsis"
                   required></textarea>

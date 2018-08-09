@@ -36,9 +36,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased] 
 ## [1.0.2] - 2018-06-09 
 ### Fixed 
-- Fixed Responsive layouts for iPhone and iMac Devices
+- Fixed Responsive layouts for iPhone and iMac Devices 
+- Fixed Synopsis line length
 ### Added 
-- Added Validators of input in Movie View Page
+- Added Validators of input in Movie View Page 
+- Added new fallback-image for missing images
 
 ## [1.0.1] - 2018-06-08 
 ### Fixed 
