@@ -32,8 +32,8 @@ export class MovieAddPageComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(5)
-        ]
-      )]
+        ])
+      ]
     });
   }
 
